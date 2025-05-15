@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6f0; /* Light Pink */
+      padding: 50px;
+    }
+    .form-container {
+      width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      border: 2px solid #ff9966; /* Orange */
+      box-shadow: 0 0 12px rgba(255, 105, 180, 0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #800080; /* Purple */
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 14px;
+      border: 1px solid #ff9966;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      background-color: #800080;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff66b2;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Admin Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const inputUsername = document.getElementById("username").value;
+      const inputPassword = document.getElementById("password").value;
+
+      const storedUsername = localStorage.getItem("adminUsername");
+      const storedPassword = localStorage.getItem("adminPassword");
+
+      if (inputUsername === storedUsername && inputPassword === storedPassword) {
+        alert("Login successful!");
+        window.location.href = "admin_dashboard.html";
+      } else {
+        alert("Invalid credentials.");
+      }
+    }
+  </script>
+</body>
+</html>
